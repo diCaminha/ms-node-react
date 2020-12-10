@@ -20,7 +20,7 @@ app.post("/posts/:id/comments", (req, res) => {
     
     const commentId = randomBytes(4).toString('hex');
     const { content } = req.body;
-    const comment = {commentId,content};
+    const comment = {commentId,content, status: 'pending'};
 
     comments.push(comment);
 
@@ -30,7 +30,7 @@ app.post("/posts/:id/comments", (req, res) => {
         "http://localhost:4005/events",
         {
             type: "CommentCreated",
-            data: {id: commentId, content, postId}
+            data: {id: commentId, content, postId, status}
         });
 
     res.status(201).send(comments);
