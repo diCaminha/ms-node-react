@@ -16,3 +16,10 @@
 
 ## command list pods
 `kbctl get pods`
+
+## steps to propagate new changes in a project
+1. new code done and commited
+2. `docker build -t dcaminha/posts .`
+3. push the code to docker hub: `docker push dcaminha/posts`
+4. verify if the deployment is set in your env: `kubectl get deployments`
+5. `kubectl rollout restart deployment posts-depl`
