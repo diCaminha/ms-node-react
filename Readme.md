@@ -7,3 +7,12 @@
 ## command to create the pod for posts on k8s
 `cd infra/k8s`
 `kubectl apply -f posts.yaml`
+
+## command to run the pod posts
+`kbctl exec -it posts sh`
+
+## command to get all logs of a pod
+`kbctl logs pod posts`
+
+## command list pods
+`kbctl get pods`
